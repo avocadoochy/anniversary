@@ -1,34 +1,69 @@
-function checkCode() {
-  const code = document.getElementById("codeInput").value;
+let currentInput = "";
+const correctCode = "0517"; // Change to your 4-digit code
 
-  if (code === "05172024") {
-    show("lockScreen", "openScreen");
-  } else {
-    alert("Wrong code 💔");
+function press(num) {
+  if (currentInput.length < 4) {
+    currentInput += num;
+    updateDots();
+  }
+  if (currentInput.length === 4) {
+    setTimeout(checkCode, 300);
   }
 }
 
-function openYes() {
-  show("openScreen", "mainContent");
+function clearCode() {
+  currentInput = "";
+  updateDots();
 }
 
-function openNo() {
-  document.getElementById("noPopup").classList.remove("hidden");
+function updateDots() {
+  const dots = document.querySelectorAll(".dots span");
+  dots.forEach((dot, index) => {
+    index < currentInput.length ? dot.classList.add("filled") : dot.classList.remove("filled");
+  });
 }
 
-function closeNo() {
-  document.getElementById("noPopup").classList.add("hidden");
+function checkCode() {
+  if (currentInput === correctCode) {
+    document.getElementById("lockScreen").classList.add("hidden");
+    document.getElementById("mainContent").classList.remove("hidden");
+    startMusic();
+  } else {
+    alert("Incorrect Code 🍂");
+    clearCode();
+  }
+}
+
+function startMusic() {
+  const container = document.getElementById("musicContainer");
+  // Music starts only after successful unlock
+  container.innerHTML = `
+    <iframe width="0" height="0" 
+    src="https://www.youtube.com/embed/4lqYdS-Ell8?start=160&autoplay=1" 
+    frameborder="0" allow="autoplay"></iframe>`;
 }
 
 function openLetter() {
-  document.getElementById("letter").classList.toggle("hidden");
+  document.getElementById("envelope").classList.add("hidden");
+  document.getElementById("navMenu").classList.add("hidden");
+  document.getElementById("letter").classList.remove("hidden");
 }
 
-function showSecret() {
-  document.getElementById("secretPage").classList.remove("hidden");
+function closeLetter() {
+  document.getElementById("letter").classList.add("hidden");
+  document.getElementById("envelope").classList.remove("hidden");
+  document.getElementById("navMenu").classList.remove("hidden");
 }
 
-function show(hide, show) {
-  document.getElementById(hide).classList.add("hidden");
-  document.getElementById(show).classList.remove("hidden");
+function showSection(id) {
+  document.getElementById("envelope").classList.add("hidden");
+  document.getElementById("navMenu").classList.add("hidden");
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function hideSections() {
+  document.getElementById("memories").classList.add("hidden");
+  document.getElementById("gift").classList.add("hidden");
+  document.getElementById("envelope").classList.remove("hidden");
+  document.getElementById("navMenu").classList.remove("hidden");
 }
