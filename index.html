@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Little Secret</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Adding Google Fonts for that elegant look -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Playfair+Display:italic&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!-- MUSIC CONTAINER (Starts empty, loaded via JS after unlock) -->
+<div id="musicContainer"></div>
 
 <!-- LOCK SCREEN -->
 <div id="lockScreen" class="screen">
@@ -30,46 +32,57 @@
   </div>
 </div>
 
-<!-- MAIN CONTENT (Scrapbook Style) -->
+<!-- MAIN CONTENT -->
 <div id="mainContent" class="hidden">
   <div class="scrapbook-bg">
     
     <div class="top-text">
-        <p>FROM <span><babyy</span></span></p>
+        <p>FROM <span>babyy</span></p>
     </div>
 
-    <div class="envelope-wrapper" onclick="openLetter()">
+    <div class="envelope-wrapper" id="envelope" onclick="openLetter()">
         <div class="envelope-img">💌</div>
         <p>FOR <span>you</span></p>
     </div>
 
+    <!-- THE LETTER -->
     <div id="letter" class="hidden paper-card">
       <h2 class="script-font">My Constant</h2>
-      <p>
-        HAPPPY ANNIVERSARY, LALOVEEE! YEHEYYY! 🤎
-Two years and counting babyyy. I’m so proud and happy for both of us. 
-To be loved and chosen by you, loveee, is such a great blessing in my life. Even though I know I’m still not capable of giving everything right now, nandito ka parin— staying and believing.
+      <div class="letter-text">
+        <p>HAPPPY ANNIVERSARY, LALOVEEE! YEHEYYY! 🤎</p>
+        <p>Two years and counting babyyy. I’m so proud and happy for both of us. To be loved and chosen by you, loveee, is such a great blessing in my life.</p>
+        <p>Thank you for the comfort. I appreciate you for being you — your patience, your kindness, and the way you make space for me.</p>
+        <p>I’ll always be your biggest supporter. You’re always going to be loved by me, even on the days when you feel hard to love. Naa rako pirme, love.</p>
+        <p>I love you always, palangga. Happy 2nd anniversary, my love — my constant, always. 🤎</p>
+      </div>
+      <button class="nav-btn" onclick="closeLetter()">Back</button>
+    </div>
 
-Thank you for the comfort. I appreciate you for being you — your patience, your kindness, the way you make space for me, your pagiging childish at pababy palagi & pagiging makulit— without asking me to be anyone else.
+    <!-- NAVIGATION MENU (Appears after unlock) -->
+    <div id="navMenu" class="navigation-menu">
+        <button class="nav-btn" onclick="showSection('memories')">📸 Memories</button>
+        <button class="nav-btn" onclick="showSection('gift')">🎁 Gift</button>
+    </div>
 
-I love loving youuu, babyyy — our late-night talks, the quiet understanding & our deep conversations.
+    <!-- MEMORIES SECTION -->
+    <div id="memories" class="hidden paper-card">
+        <h2 class="script-font">Memories</h2>
+        <p>Every moment with you is a treasure I keep in my heart. 🤎</p>
+        <button class="nav-btn" onclick="hideSections()">Back</button>
+    </div>
 
-I’ll always be your biggest supporter. You’re always going to be loved by me, even on the days when you feel hard to love. You have always been worth it and enough. I hope you know that I’ll always be here to listen, to understand and para masabihan mo sa lahat.
-
-Naa rako pirme, love. Please be gentle with yourself always.
-I hope we can finally meet and live together under the same rooftop someday. We’ll do all the plans and lists we always talk about.
-I love you always, palangga. Happy 2nd anniversary, my love — my constant, always. 🤎
-      </p>
+    <!-- GIFT SECTION -->
+    <div id="gift" class="hidden paper-card">
+        <h2 class="script-font">Forever Starts Here</h2>
+        <p>You are my greatest gift. 🎁</p>
+        <button class="nav-btn" onclick="hideSections()">Back</button>
     </div>
     
     <div class="scrapbook-decoration">
         <span class="sparkle">✨</span>
-        <span class="sparkle" style="top:20%; right:10%;">✨</span>
+        <span class="sparkle" style="bottom:10%; left:10%;">✨</span>
     </div>
   </div>
-  
-  <!-- Hidden Music Player -->
-  <iframe width="0" height="0" src="https://www.youtube.com/embed/4lqYdS-Ell8?start=160&autoplay=1" allow="autoplay"></iframe>
 </div>
 
 <script src="script.js"></script>
