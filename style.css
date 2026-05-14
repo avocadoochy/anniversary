@@ -1,69 +1,84 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle, #0a0a0a, #000000);
+  font-family: Arial;
+  background: radial-gradient(#14141f, #0b0b10);
   color: white;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* Intro screen */
 .screen {
-  padding: 80px 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Buttons */
+.hidden { display: none; }
+
+.glow {
+  text-shadow: 0 0 10px #ff4d6d;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
 button {
-  background: #8b0000;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ff4d6d;
   color: white;
   border: none;
-  padding: 12px 20px;
-  margin: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: #ff0033;
-  transform: scale(1.05);
-}
-
-/* Popup */
 .popup {
   position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #111;
+  background: #1c1c2b;
   padding: 20px;
-  border: 1px solid crimson;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* Hidden */
-.hidden {
-  display: none;
+.card {
+  background: rgba(255,255,255,0.05);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
-/* Tabs */
-.tabs button {
+.envelope {
+  font-size: 30px;
+  margin: 40px;
+  cursor: pointer;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.grid img {
+  width: 100px;
   margin: 5px;
-}
-
-.tab {
-  margin-top: 20px;
-  padding: 20px;
-}
-
-/* Photos */
-img {
-  width: 150px;
-  margin: 10px;
   border-radius: 10px;
-  border: 2px solid #8b0000;
 }
 
-/* Glow text */
-h1, h2 {
-  text-shadow: 0 0 10px crimson;
+.gift {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.hearts::before {
+  content: "💖 💕 💖 💕 💖";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  opacity: 0.2;
 }
