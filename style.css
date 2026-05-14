@@ -1,122 +1,123 @@
 :root {
-  --bg-color: #f2ede1;
-  --accent-green: #6b705c;
-  --paper-color: #f9f7f0;
-  --text-dark: #5a5a5a;
+  --army-green: #4b5320;
+  --pastel-green: #c1d5a4;
+  --sage-green: #8da47e;
+  --cream: #f4f1ea;
+  --dark-text: #2f361a;
 }
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-dark);
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
+  background-color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-text);
+  overflow: hidden;
 }
 
 .screen {
-  width: 100%;
-  max-width: 400px;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  background: radial-gradient(circle, var(--pastel-green) 0%, var(--cream) 100%);
 }
 
 .hidden { display: none !important; }
 
 .script-font {
   font-family: 'Dancing Script', cursive;
-  color: var(--accent-green);
-  font-size: 2.2rem;
-  margin: 10px 0;
+  color: var(--army-green);
+  font-size: 2.5rem;
 }
 
-/* Numpad Styling */
-.lock-container { text-align: center; }
-.dots { margin: 20px 0; }
-.dots span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border: 1.5px solid var(--accent-green);
-  border-radius: 50%;
-  margin: 0 8px;
-  transition: background 0.3s;
+/* UI Designer Style Cards */
+.lock-card, .quiz-card, .paper-card {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(75, 83, 32, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 380px;
 }
-.dots span.filled { background: var(--accent-green); }
 
-.numpad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
+/* Numpad aesthetic */
 .numpad button {
   background: none;
   border: none;
-  font-size: 1.6rem;
-  color: var(--accent-green);
+  font-size: 1.8rem;
+  color: var(--army-green);
   padding: 15px;
   cursor: pointer;
+  transition: opacity 0.2s;
 }
 
-/* Main Content Styling */
-.scrapbook-bg {
-  width: 100%;
-  max-width: 400px;
-  padding: 40px 20px;
-  position: relative;
-  text-align: center;
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--sage-green);
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.dots span.filled { background: var(--army-green); border-color: var(--army-green); }
+
+/* Quiz Styling */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+.quiz-option {
+    background: var(--pastel-green);
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    color: var(--army-green);
+    font-weight: 500;
+    cursor: pointer;
 }
 
-.envelope-wrapper {
-  margin: 40px 0;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.envelope-wrapper:hover { transform: scale(1.1); }
-.envelope-img { font-size: 5rem; }
-
-.paper-card {
-  background: var(--paper-color);
-  padding: 25px;
-  border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  transform: rotate(-1deg);
-  margin: 20px 0;
-  border-left: 5px solid #e0d8c3;
+/* Envelope Art */
+.envelope-art {
+    background: var(--sage-green);
+    width: 200px;
+    height: 140px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-.letter-text {
-  text-align: left;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--army-green);
+    border-radius: 50%;
+    padding: 5px;
 }
 
-.navigation-menu {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+.letter-scroll {
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding-right: 10px;
 }
 
-.nav-btn {
-  background: var(--accent-green);
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: inherit;
-  margin-top: 15px;
-}
-
-.sparkle {
-  position: absolute;
-  color: #d4a373;
-  font-size: 1.5rem;
-  opacity: 0.5;
+.minimal-btn {
+    background: var(--army-green);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
 }
