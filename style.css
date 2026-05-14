@@ -58,18 +58,6 @@ button {
   cursor: pointer;
 }
 
-.grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.grid img {
-  width: 100px;
-  margin: 5px;
-  border-radius: 10px;
-}
-
 .gift {
   font-size: 40px;
   cursor: pointer;
