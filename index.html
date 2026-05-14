@@ -1,16 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Our Story 🖤</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Secret Love</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background:black; color:white; text-align:center;">
+<body>
 
-<h1>🖤 A Special Place 🖤</h1>
+<div class="hearts"></div>
 
-<p>Do you want to open this?</p>
+<!-- LOCK SCREEN -->
+<div id="lockScreen" class="screen">
+  <h1 class="glow">🔐 Enter Anniversary Code</h1>
+  <input type="password" id="codeInput" placeholder="DDMMYYYY">
+  <button onclick="checkCode()">Unlock</button>
+</div>
 
-<button onclick="alert('Go to password ❤️')">Yes ❤️</button>
-<button onclick="alert('You can’t escape my love 🖤')">No 🙈</button>
+<!-- OPEN SCREEN -->
+<div id="openScreen" class="screen hidden">
+  <h1>Do you want to open this? 💌</h1>
+  <button onclick="openYes()">YES</button>
+  <button onclick="openNo()">NO</button>
+</div>
 
+<!-- NO POPUP -->
+<div id="noPopup" class="popup hidden">
+  <p>Even if you say no… I’ll still love you ❤️</p>
+  <button onclick="closeNo()">Close</button>
+</div>
+
+<!-- MAIN -->
+<div id="mainContent" class="hidden">
+
+  <!-- MUSIC (START 2:40 = 160s) -->
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/4lqYdS-Ell8?start=160&autoplay=1"
+    allow="autoplay">
+  </iframe>
+
+  <!-- ENVELOPE -->
+  <div class="envelope" onclick="openLetter()">💌 Tap to open letter</div>
+
+  <!-- LETTER -->
+  <div id="letter" class="hidden card">
+    <h2>My Love Letter ✍️</h2>
+    <p contenteditable="true">
+      You are my favorite person in the world...
+    </p>
+  </div>
+
+  <!-- MEMORIES -->
+  <div class="card">
+    <h2>📸 Memories</h2>
+    <div class="grid">
+      <img src="assets/1.jpg">
+      <img src="assets/2.jpg">
+      <img src="assets/3.jpg">
+    </div>
+  </div>
+
+  <!-- SECRET -->
+  <div class="gift" onclick="showSecret()">🎁</div>
+
+  <div id="secretPage" class="hidden card">
+    <h1>Forever Starts Here ❤️</h1>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
